@@ -1,0 +1,32 @@
+﻿@{
+  
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<blog_yeni.Models.post>
+
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        @foreach (var m in Model)
+        {
+            <div class="post-preview">
+                <a href="post.html">
+                    <h2 class="post-title">
+                        <a href="@Url.Action("posts", "home", new { id = m.Id})">@m.baslik</a>
+                    </h2>
+                    <h3 class="post-subtitle">
+                        @m.altBaslik
+                    </h3>
+                </a>
+                <p class="post-meta">Posted by <a href="#">@m.editors.name</a> @m.tarih</p>
+            </div>
+            <hr>
+        <!-- Pager -->
+           
+        }
+        <ul class="pager">
+            <li class="next">
+                <a href="/home/tumyazilar">Eski Yazılar →</a>
+            </li>
+        </ul>
+    </div>
+</div>

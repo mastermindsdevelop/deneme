@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "hakkimizda";
+    Layout = "~/Areas/yonetim/Views/Shared/_yonetimArea.cshtml";
+    @model IEnumerable<blog_yeni.Models.hakkimizda>
+    <script type="text/javascript" src="@Url.Content("C://Users//MERT1//Desktop//Çalışmalar//blog_yeni//blog_yeni//fckeditor//fckeditor.js")"></script>
+    
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var sBasePath = '@Url.Content("C://Users//MERT1//Desktop//Çalışmalar//blog_yeni//blog_yeni//fckeditor//")';
+            var oFCKeditor = new FCKeditor('content');
+            oFCKeditor.BasePath = sBasePath;
+            oFCKeditor.Height = 450;
+            oFCKeditor.ReplaceTextarea();
+        }
+    </script>
+}
+@Html.TextAreaFor(model => model.ToList(), new { @id = "content" })
+

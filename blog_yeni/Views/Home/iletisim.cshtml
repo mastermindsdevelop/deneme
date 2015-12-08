@@ -1,0 +1,37 @@
+﻿
+@model blog_yeni.Models.iletisim
+@{
+    ViewBag.Title = "iletisim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        @if (TempData["notice"] != null)
+        {
+            <p>@TempData["notice"]</p>
+        }
+        @using (Html.BeginForm())
+        {
+            @Html.Label("Adınız")
+            <br />
+            @Html.TextBoxFor(model=> model.name, new { @placeholder = "Adınız" , @class="textbox"})
+            <br />
+            @Html.Label("E-mail Adresiniz")
+            <br />
+            @Html.TextBoxFor(model => model.emailAddress, new { @placeholder = "Email", @class = "textbox" })
+            <br />
+            @Html.Label("Telefon Numaranız")
+            <br />
+            @Html.TextBoxFor(model => model.phoneNumber, new { @placeholder = "Telefon", @class = "textbox" })
+            <br />
+            @Html.Label("Mesajınız")
+            <br />
+            @Html.TextAreaFor(model => model.yorum, new { @placeholder = "Mesajınız", @class = "textarea" })
+            <br />   
+            <input type="submit" value="Gönder" />
+}
+    </div>
+</div>
